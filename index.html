@@ -2,15 +2,15 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <title>OLD DAYS JAPAN</title>
+  <title>OLD DAYS JAPAN – YouTube</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-      background-color: #FBE9CA; /* ちょい昭和な紙色 */
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+      background-color: #f6eddc; 
       display: flex;
       justify-content: center;
       align-items: center;
@@ -19,7 +19,7 @@
 
     .wrapper {
       text-align: center;
-      padding: 24px;
+      padding: 20px;
     }
 
     .logo {
@@ -32,13 +32,12 @@
 
     .btn {
       display: inline-block;
-      padding: 12px 28px;
+      padding: 14px 28px;
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
       border-radius: 999px;
-      border: none;
-      background-color: #e26b2d; /* 昭和オレンジ */
+      background-color: #e26b2d;
       color: #fff5de;
       box-shadow: 0 3px 0 #b24d18;
       transition: transform 0.1s ease, box-shadow 0.1s ease;
@@ -51,28 +50,40 @@
 
     .sub {
       margin-top: 12px;
-      font-size: 12px;
+      font-size: 13px;
       color: #7a6b4b;
     }
   </style>
 </head>
+
 <body>
   <div class="wrapper">
-    <!-- 画像ファイル名は自分がアップした名前に合わせて変更 -->
+
+    <!-- ロゴ画像：アップしたファイル名に変更する -->
     <img src="old-days-japan-logo.jpeg" alt="OLD DAYS JAPAN ロゴ" class="logo">
 
-    <a
-      class="btn"
-      href="https://www.youtube.com/@olddays_japan"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      YouTubeでひらく
+    <!-- ボタン（手動で開く用） -->
+    <a class="btn" href="https://www.youtube.com/@olddays_japan" target="_blank" rel="noopener noreferrer">
+      YouTubeで開く
     </a>
 
-    <p class="sub">
-      アプリが入っていれば、「YouTubeアプリで開く」を選んでね。
-    </p>
+    <p class="sub">アプリが入っていれば、自動で開く場合があります。</p>
   </div>
+
+  <script>
+    // YouTubeアプリを起動するディープリンク（アプリ優先）
+    var appUrl = "youtube://www.youtube.com/@olddays_japan";
+
+    // アプリが開けなかったとき用のWebリンク
+    var webUrl = "https://www.youtube.com/@olddays_japan";
+
+    // ページ読み込み後、自動でアプリ起動を試す
+    window.location.href = appUrl;
+
+    // 1.2秒待って開かなければWeb版へ
+    setTimeout(function () {
+      window.location.href = webUrl;
+    }, 1200);
+  </script>
 </body>
 </html>
