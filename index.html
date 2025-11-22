@@ -5,40 +5,32 @@
   <title>OLD DAYS JAPAN</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <script>
-  (function() {
-    const DEST = "https://olddays-japan.github.io/youtube/";
-    const ua = navigator.userAgent.toLowerCase();
-  
-    const isIG = ua.includes("instagram");
-    const isFB = ua.includes("fbav") || ua.includes("fban") || ua.includes("messenger");
-    const inApp = isIG || isFB;
-  
-    if (!inApp) return;
-  
-    // iOS の場合
-    if (/iphone|ipad|ipod/.test(ua)) {
-      // タブを新規で開く（Safariに飛ぶ可能性が高い）
-      window.open(DEST, "_blank");
-      setTimeout(() => {
-        window.location.href = DEST;
-      }, 600);
-      return;
-    }
-  
-    // Android の場合
-    if (/android/.test(ua)) {
-      window.location.href =
-        "intent://" +
-        DEST.replace("https://", "") +
-        "#Intent;scheme=https;package=com.android.chrome;end";
-  
-      setTimeout(() => {
-        window.location.href = DEST;
-      }, 600);
-    }
-  })();
-  </script>
+<script>
+(function() {
+  const DEST = "https://www.youtube.com/@olddays_japan";
+
+  const ua = navigator.userAgent.toLowerCase();
+  const isIG = ua.includes("instagram");
+  const isFB = ua.includes("fbav") || ua.includes("fban") || ua.includes("messenger");
+  const inApp = isIG || isFB;
+
+  if (!inApp) return;
+
+  if (/iphone|ipad|ipod/.test(ua)) {
+    window.location.href = "googlechrome://" + DEST.replace("https://", "");
+    setTimeout(() => {
+      window.location.href = DEST;
+    }, 500);
+  }
+
+  if (/android/.test(ua)) {
+    window.location.href =
+      "intent://" +
+      DEST.replace("https://", "") +
+      "#Intent;scheme=https;package=com.android.chrome;end";
+  }
+})();
+</script>
 
   <style>
     body {
